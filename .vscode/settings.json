@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": false
+                }
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "neon.tech",
+            "connectString": "postgresql://neondb_owner:npg_q0fEOHulGv2t@ep-damp-wildflower-ac8nlu39-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require"
+        }
+    ]
+}
