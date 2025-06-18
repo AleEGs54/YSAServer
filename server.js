@@ -1,11 +1,24 @@
 const express = require("express");
 require("dotenv").config()
 const app = express();
+const participantsRoute = require("./routes/participantRoute")
 
 /* ******************************************
- * Default GET route
+ * Middlewares
  * ***************************************** */
-app.get("/", (req, res) => {res.send("Welcome home!")})
+
+//To receive JSON
+app.use(express.json())
+//To send JSON
+app.use((req, res, next) => {
+    res.setHeader('Content-Type', 'application/json')
+    next()
+})
+
+/* ******************************************
+ * Routes
+ * ***************************************** */
+app.use('/participants', participantsRoute)
 
 /* ******************************************
  * Server host name and port

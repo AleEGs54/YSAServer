@@ -9,8 +9,8 @@
             "previewLimit": 50,
             "server": "localhost",
             "driver": "PostgreSQL",
-            "name": "neon.tech",
-            "connectString": "postgresql://neondb_owner:npg_q0fEOHulGv2t@ep-damp-wildflower-ac8nlu39-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require"
+            "name": "RENDER",
+            "connectString": "postgresql://confejasdb_user:95M9zFIMWZNYx0WOwOryIJFF5b9FqlN7@dpg-d18uto7diees73ab4gq0-a.oregon-postgres.render.com/confejasdb"
         }
     ]
 }
