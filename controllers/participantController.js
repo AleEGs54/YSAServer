@@ -6,7 +6,7 @@ partController.getParticipants = async (req, res) => {
 
     try {
         const participants = await partModel.getAllParticipants()
-        res.status(200).res.json({
+        res.status(200).json({
             success:true,
             message:"Participants fetched successfully",
             data:participants,
@@ -30,7 +30,7 @@ partController.getParticipantById = async (req, res) => {
     try {
         const { id } = req.params
         const participant = await partModel.getParticipantById(id)
-        res.status(200).res.json({
+        res.status(200).json({
             success:true,
             message:`Participant ${id} fetched successfully`,
             data:participant,
