@@ -6,6 +6,27 @@ const session = require('express-session')
 const pool = require("./database")
 const cors = require('cors')
 
+
+/* ******************************************
+* CORS Configuration
+* ***************************************** */
+const whitelist = ['http://localhost:5173']
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (whitelist.includes(origin)|| !origin) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    },
+    credentials: true
+}
+
+
+app.use(cors(corsOptions))
+
+app.options('/', cors(corsOptions))
+
 /* ******************************************
 * Middlewares
 * ***************************************** */
@@ -21,21 +42,6 @@ app.use(session({
     saveUninitialized: true,
     name: 'sessionId',
 }))
-
-/* ******************************************
-* CORS Configuration
-* ***************************************** */
-const whitelist = ['http://localhost:3000']
-
-app.use(cors((origin, callback) => {
-    if (whitelist.includes(origin) || !origin) {
-        callback(null, true)
-    } else {
-        callback(new Error('Not allowed by CORS'))
-    }
-}))
-
-app.options('*', cors())
 
 //To receive JSON
 app.use(express.json())
