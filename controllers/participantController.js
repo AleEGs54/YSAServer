@@ -3,14 +3,49 @@ const partController = {}
 
 
 partController.getParticipants = async (req, res) => {
-    const participants = await partModel.getAllParticipants()
-    res.json(participants)
+
+    try {
+        const participants = await partModel.getAllParticipants()
+        res.status(200).res.json({
+            success:true,
+            message:"Participants fetched successfully",
+            data:participants,
+            meta:{
+                total:participants.length
+            }
+        })
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            message:"Error fetching participants",
+            error: error.message
+        })
+    }
+
+
+
 }
 
 partController.getParticipantById = async (req, res) => {
-    const { id } = req.params
-    const participant = await partModel.getParticipantById(id)
-    res.json(participant)
+    try {
+        const { id } = req.params
+        const participant = await partModel.getParticipantById(id)
+        res.status(200).res.json({
+            success:true,
+            message:`Participant ${id} fetched successfully`,
+            data:participant,
+            meta:{
+                total:participant.length
+            }
+        })
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            message:`Error fetching participant ${id}`,
+            error: error.message
+        })
+    }
+
 }
 
 module.exports = partController
