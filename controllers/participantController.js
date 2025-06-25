@@ -1,6 +1,9 @@
 const partModel = require("../models/participantModel")
 const partController = {}
 
+/* ***************************
+ *  GET
+ * ************************** */
 
 partController.getParticipants = async (req, res) => {
 
@@ -47,5 +50,26 @@ partController.getParticipantById = async (req, res) => {
     }
 
 }
+
+partController.getColumnNames = async (req, res) => {
+    try {
+        const headers = await partModel.getColumnNames()
+        res.status(200).json({
+            success:true,
+            message:"Headers fetched successfully",
+            data:headers,
+            meta:{
+                total:headers.length
+            }
+        })
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            message:"Error fetching headers",
+            error: error.message
+        })
+    }
+}
+
 
 module.exports = partController

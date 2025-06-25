@@ -3,3 +3,27 @@ GET http://localhost:5500/participants
 
 ###Get a unique participant
 GET http://localhost:5500/participants/3
+
+###Get all column names
+GET http://localhost:5500/participants/columns
+
+###Post file 
+POST http://localhost:5500/operations/update-database
+Content-Type: multipart/form-data; boundary=file_boundary
+
+--file_boundary
+Content-Disposition: form-data; name="file"; filename="test.csv"
+Content-Type: text/csv
+
+id, name, email
+1,Alejandro,alejandro.esteves19@gmail.com
+2,Ana,ana@example.com
+--file_boundary
+
+###POST test
+POST http://localhost:5500/operations/update-database
+Content-Type: application/json
+
+{
+  "test": "value"
+}

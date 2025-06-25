@@ -7,6 +7,8 @@ const partController = require("../controllers/participantController");
  *  GET
  * ************************** */
 router.get("/", utilities.handleErrors(partController.getParticipants));
+router.get("/columns", utilities.handleErrors(partController.getColumnNames));
 router.get("/:id", utilities.handleErrors(partController.getParticipantById));
+
 
 module.exports = router;

@@ -25,6 +25,21 @@ participantModel.getParticipantById = async function(id) {
     }
 }
 
+participantModel.getColumnNames = async function() {
+    try {
+        const query = `
+        SELECT column_name
+        FROM information_schema.columns
+        WHERE table_name = 'participant'
+        ORDER BY ordinal_position
+        `
+        const { rows } = await pool.query(query)
+        return rows.map(row => row.column_name)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 
 module.exports = participantModel

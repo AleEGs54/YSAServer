@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../YSAConnect"
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"pgOptions": {
+					"ssl": {
+						"rejectUnauthorized": false
+					}
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"driver": "PostgreSQL",
+				"name": "RENDER",
+				"connectString": "postgresql://confejasdb_user:95M9zFIMWZNYx0WOwOryIJFF5b9FqlN7@dpg-d18uto7diees73ab4gq0-a.oregon-postgres.render.com/confejasdb"
+			}
+		]
+	}
+}
