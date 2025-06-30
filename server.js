@@ -4,6 +4,8 @@ const app = express();
 const participantsRoute = require("./routes/participantRoute")
 const databaseRoute = require("./routes/databaseRoute")
 const accountRoute = require("./routes/accountRoute")
+const roleRoute = require("./routes/roleRoute")
+const leaderRoute = require("./routes/leaderRoute")
 const session = require('express-session')
 const pool = require("./database")
 const cors = require('cors')
@@ -61,6 +63,8 @@ app.use(cookieParser())
  * ***************************************** */
 app.use('/account', accountRoute)
 app.use('/participants', participantsRoute)
+app.use('/leaders', leaderRoute)
+app.use('/roles', roleRoute)
 app.use('/operations', databaseRoute)
 
 /* ***********************

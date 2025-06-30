@@ -33,6 +33,15 @@ partController.getParticipantById = async (req, res) => {
     try {
         const { id } = req.params
         const participant = await partModel.getParticipantById(id)
+
+        if(!participant){
+            return res.status(404).json({
+                success:false,
+                message:`Participant ${id} not found`,
+                error:"Participant not found"
+            })
+        }
+
         res.status(200).json({
             success:true,
             message:`Participant ${id} fetched successfully`,

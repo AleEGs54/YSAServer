@@ -19,7 +19,7 @@ participantModel.getParticipantById = async function(id) {
     try {
         const query = `SELECT * FROM participant WHERE participant_id = $1`
         const { rows } = await pool.query(query, [id])
-        return rows
+        return rows[0]
     } catch (error) {
         console.log(error)
     }
